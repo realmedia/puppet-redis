@@ -40,8 +40,8 @@ class redis (
   $redis_bin_dir = $redis::params::redis_bin_dir
 ) inherits redis::params {
 
-  include wget
-  include gcc
+  require wget
+  require buildenv::tools::gcc
 
   $redis_pkg_name = "redis-${version}.tar.gz"
   $redis_pkg = "${redis_src_dir}/${redis_pkg_name}"
